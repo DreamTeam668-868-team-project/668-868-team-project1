@@ -1,0 +1,2 @@
+public class ProductCatalog {
+}
