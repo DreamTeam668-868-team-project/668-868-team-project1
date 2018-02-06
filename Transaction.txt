@@ -1,63 +1,63 @@
-Jane Doe
-1234     1
-2345     2
-9876     15
-2468     999
-1357    
-9999    
-<CASH $9.99>
+Indentifying Information: Jane Doe
+Item: 1234     1
+Item: 2345     2
+Item: 9876     15
+Item: 2468     999
+Item: 1357    
+Item: 9999    
+Payment: <CASH $9.99>
 
-Jane Does
-1234     1
-2345     2
-9876     15
-2468     9
-1357     
-9999     
-<CREDIT 99999>
+Indentifying Information: Jane Does
+Item: 1234     1
+Item: 2345     2
+Item: 9876     15
+Item: 2468     9
+Item: 1357     
+Item: 9999     
+Payment: <CREDIT 99999>
 
-Joe Cool
-1234     1
-2345     2
-9876     
-2468     9    
-<CREDIT 98765>
+Indentifying Information: Joe Cool
+Item: 1234     1
+Item: 2345     2
+Item: 9876     
+Item: 2468     9    
+Payment: <CREDIT 98765>
 
-Billy Boy
-1234     1
-2345     2
-0000 
-<CREDIT 1111>
+Indentifying Information: Billy Boy
+Item: 1234     1
+Item: 2345     2
+Item: 0000 
+Payment: <CREDIT 1111>
 
-Bobs Yuruncle
-1357    
-999    
-<CASH $1.00>
+Indentifying Information: Bobs Yuruncle
+Item: 1357    
+Item: 999    
+Payment: <CASH $1.00>
 
-Jannis Yuranti
-1234     1
-9876     1
-9999    
-<CHECK $0.99>
+Indentifying Information: Jannis Yuranti
+Item: 1234     1
+Item: 9876     1
+Item: 9999    
+Payment: <CHECK $0.99>
 
-Mr. Cool
-1234     1
-2345     
-9876     1
-2468     333
-1357    
-9999    
-<CASH $777.77>
+Indentifying Information: Mr. Cool
+Item: 1234     1
+Item: 2345     
+Item: 9876     1
+Item: 2468     333
+Item: 1357    
+Item: 9999    
+Payment: <CASH $777.77>
 
-Jane Doe
-1234     1
-2345     2
-9876     3
-2468     9
-1357    
-9999    
-<CREDIT 12345>
+Indentifying Information: Jane Doe
+Item: 1234     1
+Item: 2345     2
+Item: 9876     3
+Item: 2468     9
+Item: 1357    
+Item: 9999    
+Payment: <CREDIT 12345>
 
-Joe Hot
-12345    1   
-<CASH >
+Indentifying Information: Joe Hot
+Item: 12345    1   
+Payment: <CASH >
