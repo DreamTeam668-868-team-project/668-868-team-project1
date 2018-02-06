@@ -1,4 +1,4 @@
-package customer;
+package src.customer;
 
 public class TransactionItem {
     TransactionItem(String upc){
