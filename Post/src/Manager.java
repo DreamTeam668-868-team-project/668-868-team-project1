@@ -1,4 +1,4 @@
-package store;
+package src;
 
 public class Manager {
 }
