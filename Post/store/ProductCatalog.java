@@ -1,4 +1,4 @@
-package src.store;
+package store;
 
 public class ProductCatalog {
     private ProductReader pr;

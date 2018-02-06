@@ -1,4 +1,4 @@
-package src.customer;
+package customer;
 
 public class TransactionHeader {
     String customerName;

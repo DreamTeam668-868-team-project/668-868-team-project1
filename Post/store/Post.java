@@ -1,4 +1,4 @@
-package src.store;
+package store;
 
 public class Post {
     private ProductCatalog productCatalog;

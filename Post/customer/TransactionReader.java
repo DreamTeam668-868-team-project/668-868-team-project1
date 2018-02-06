@@ -1,4 +1,4 @@
-package src.customer;
+package customer;
 
 import java.io.BufferedReader;
 import java.io.File;
