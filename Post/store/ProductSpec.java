@@ -1,16 +1,17 @@
+package store;
+
 public class ProductSpec {
-    int upc;
+    String upc;
     String description;
     double price;
 
-    ProductSpec(int upc, String description, double price) {
+    ProductSpec(String upc, String description, double price) {
         this.upc = upc;
         this.description = description;
         this.price = price;
-
     }
 
-    public int getUpc() {
+    public String getUpc() {
         return upc;
     }
 
@@ -22,5 +23,5 @@ public class ProductSpec {
         return description;
     }
 
-
+    // setPrice, maybe?
 }
