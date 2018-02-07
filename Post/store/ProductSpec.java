@@ -23,5 +23,9 @@ public class ProductSpec {
         return description;
     }
 
-    // setPrice, maybe?
+    @Override
+    public String toString(){
+        
+        return getUpc() + " " + getDescription() + " " + getPrice();
+    }
 }

@@ -7,11 +7,16 @@ public class TransactionItem {
     }
     
     TransactionItem(String upc, int quantity){
-        
+        this.upc = upc;
+        this.quantity = quantity;
     }
     
     public String getUPC(){
         return "";
+    }
+    
+    public int getQuantity(){
+        return this.quantity;
     }
     
     private String upc;

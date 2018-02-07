@@ -3,7 +3,6 @@ package store;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class ProductReader {
     private File file;
@@ -26,12 +25,25 @@ public class ProductReader {
 
         if (productReader.hasNextLine()) {
             nextLine = productReader.nextLine().trim();
-            StringTokenizer tokenizer = new StringTokenizer(nextLine);
-            upc = tokenizer.nextToken();
-            desc = tokenizer.nextToken();
-            price = Double.valueOf(tokenizer.nextToken());
+            
+            upc = nextLine.substring(0,3);
+            desc = nextLine.substring(10, 29);
+            price = Double.valueOf(nextLine.substring(30));
+            
             //System.out.println(nextLine);
         } else return null;
         return new ProductSpec(upc, desc, price);
+    }
+    
+    public static void main(String[] args){
+        String filePath = "Post/testFiles/Products.txt";
+        try{
+            ProductReader pr = new ProductReader(filePath);
+            ProductSpec product = pr.nextProduct();
+            
+            System.out.println(product.toString());
+        } catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
 }
