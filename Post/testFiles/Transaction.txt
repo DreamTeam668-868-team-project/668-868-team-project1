@@ -5,7 +5,7 @@ Jane Doe
 2468     999
 1357    
 9999    
-Payment: <CASH $9.99>
+<CASH $9.99>
 
 Jane Does
 1234     1
@@ -14,30 +14,30 @@ Jane Does
 2468     9
 1357     
 9999     
-Payment: <CREDIT 99999>
+<CREDIT 99999>
 
 Joe Cool
 1234     1
 2345     2
 9876     
 2468     9    
-Payment: <CREDIT 98765>
+<CREDIT 98765>
 Billy Boy
 1234     1
 2345     2
 0000 
-Payment: <CREDIT 1111>
+<CREDIT 1111>
 
 Bobs Yuruncle
 1357    
 999    
-Payment: <CASH $1.00>
+<CASH $1.00>
 
 Jannis Yuranti
 1234     1
 9876     1
 9999    
-Payment: <CHECK $0.99>
+<CHECK $0.99>
 
 Mr. Cool
 1234     1
@@ -46,7 +46,7 @@ Mr. Cool
 2468     333
 1357    
 9999    
-Payment: <CASH $777.77>
+<CASH $777.77>
 
 Jane Doe
 1234     1
@@ -55,8 +55,8 @@ Jane Doe
 2468     9
 1357    
 9999    
-Payment: <CREDIT 12345>
+<CREDIT 12345>
 
 Joe Hot
 12345    1   
-Payment: <CASH >
+<CASH $1>
