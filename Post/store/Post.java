@@ -24,8 +24,6 @@ public class Post {
             scannedProduct = productCatalog.getProduct(tItem.getUPC());
             updateInvoice(tItem);
         }
-        
-        printInvoice();
     }
     
     public boolean payTotal(Payment payment){
@@ -41,6 +39,10 @@ public class Post {
         return false;
     }
     
+    public void endTransaction(){
+        
+    }
+    
     boolean validateUPC(String upc){return this.productCatalog.validateUPC(upc);}
 
     private void updateInvoice(TransactionItem tItem){
@@ -49,8 +51,8 @@ public class Post {
         
         subTotal = tItem.getQuantity() * scannedProduct.getPrice();
         
-        this.total += subTotal;
-                
+        
+        this.total += subTotal;     
     }
     
     private void printInvoice(){}

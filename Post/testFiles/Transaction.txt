@@ -22,15 +22,14 @@ Joe Cool
 9876     
 2468     9    
 <CREDIT 98765>
+
 Billy Boy
-1234     1
+1234
 2345     2
-0000 
-<CREDIT 1111>
+<CREDIT 11117>
 
 Bobs Yuruncle
-1357    
-999    
+1357       
 <CASH $1.00>
 
 Jannis Yuranti

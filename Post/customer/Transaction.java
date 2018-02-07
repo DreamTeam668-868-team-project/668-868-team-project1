@@ -5,11 +5,16 @@ import java.util.ArrayList;
 public class Transaction {
     
     public Transaction(){
+        this.transactionItems = new ArrayList<>();
         this.index = 0;
     }
     
     public void setHeader(TransactionHeader header){
         this.header = header;
+    }
+    
+    public TransactionHeader getHeader(){
+        return this.header;
     }
     
     public void setPayment(Payment payment){
@@ -35,6 +40,8 @@ public class Transaction {
         }
         return tItem;        
     }
+    
+    // toString
     
     private int index;
     private Payment payment;

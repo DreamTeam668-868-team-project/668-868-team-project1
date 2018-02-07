@@ -25,7 +25,6 @@ public class ProductSpec {
 
     @Override
     public String toString(){
-        
         return getUpc() + " " + getDescription() + " " + getPrice();
     }
 }

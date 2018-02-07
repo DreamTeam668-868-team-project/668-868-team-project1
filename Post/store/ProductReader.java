@@ -6,15 +6,15 @@ import java.util.Scanner;
 
 public class ProductReader {
     private File file;
-    private Scanner productReader;
+    private Scanner scanner;
 
     public ProductReader(String productFile) throws FileNotFoundException {
         file = new File(productFile);
-        productReader = new Scanner(file);
+        scanner = new Scanner(file);
     }
 
     public boolean hasMoreProducts(){
-        return (productReader.nextLine().trim() != null);
+        return scanner.hasNext();
     }
     
     public ProductSpec nextProduct() {
@@ -23,25 +23,27 @@ public class ProductReader {
         String desc = "";
         double price = 0.0;
 
-        if (productReader.hasNextLine()) {
-            nextLine = productReader.nextLine().trim();
+        if (scanner.hasNextLine()) {
+            nextLine = scanner.nextLine().trim();
             
-            upc = nextLine.substring(0,3);
-            desc = nextLine.substring(10, 29);
+            upc = nextLine.substring(0,4);
+            desc = nextLine.substring(10, 30);
             price = Double.valueOf(nextLine.substring(30));
             
             //System.out.println(nextLine);
         } else return null;
         return new ProductSpec(upc, desc, price);
     }
-    
+    // test main
     public static void main(String[] args){
         String filePath = "Post/testFiles/Products.txt";
         try{
             ProductReader pr = new ProductReader(filePath);
-            ProductSpec product = pr.nextProduct();
+            while(pr.hasMoreProducts()){
+                ProductSpec product = pr.nextProduct();
             
-            System.out.println(product.toString());
+                System.out.println(product.toString());
+            }
         } catch(FileNotFoundException e){
             e.printStackTrace();
         }

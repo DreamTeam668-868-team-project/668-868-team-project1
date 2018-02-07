@@ -9,6 +9,9 @@ public class TransactionHeader {
         this.date = date;        
     }
     
+    public String getCustomerName(){
+        return this.customerName;
+    }
     // toString();
     
 }

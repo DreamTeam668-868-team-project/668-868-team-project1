@@ -2,52 +2,48 @@ package customer;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import static jdk.nashorn.internal.codegen.OptimisticTypesPersistence.store;
 
 public class TransactionReader {
 
-    TransactionReader(String filePath) {
-        File file = new File(filePath);
-        try {
-            reader = new BufferedReader(new FileReader(file));
-        } catch (java.io.FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public TransactionReader(String filePath) throws FileNotFoundException {
+        file = new File(filePath);
+        scanner = new Scanner(file);
     }
 
-    public boolean hasMoreTransactions() {
-        return false;
+    public boolean hasMoreTransactions(){
+        return scanner.hasNext();
     }
-
-    public Transaction getNextTransaction() {
+    
+    public Transaction nextTransaction() {
+        String nextLine = "";        
         Transaction transaction = new Transaction();
-        int quantity;
-        String upc;
-        String nextToken;
-        String nextline = "";
-        java.util.StringTokenizer tokenizer;
-        try {
-            nextline = reader.readLine(); // name first, one string, no tokenizing
-            transaction.setHeader(new TransactionHeader(nextline, new java.util.Date()));
-
-            // parse line for item data
-            nextline = reader.readLine(); // item data, loop
-            tokenizer = new java.util.StringTokenizer(nextline);
+        
+        
+        if (scanner.hasNextLine()) {
+            while(nextLine.isEmpty()) nextLine = scanner.nextLine(); // consume empty lines
+            TransactionHeader header = new TransactionHeader(nextLine, new Date());
+            transaction.setHeader(header);
             
-            while (nextline.charAt(0) != '<') {
-                nextToken = tokenizer.nextToken();
-
-                upc = nextToken;
-                if (!tokenizer.hasMoreTokens()) {
-                    quantity = 1;
-                } else {
-                    quantity = Integer.valueOf(tokenizer.nextToken());
-                }
-                transaction.addTransactionItem(new TransactionItem(upc, quantity));
+            nextLine = scanner.nextLine();
+            tokenizer = new StringTokenizer(nextLine);
+            while(nextLine.charAt(0) != '<'){
                 
-                nextline = reader.readLine(); // item data, loop
-                tokenizer = new java.util.StringTokenizer(nextline);
-            } // end item data
+                int quantity = 1;
+                String upc = tokenizer.nextToken();
+                
+                if(tokenizer.hasMoreTokens())
+                    quantity = Integer.valueOf(tokenizer.nextToken());
+                
+                transaction.addTransactionItem(new TransactionItem(upc, quantity));
+                nextLine = scanner.nextLine();
+                tokenizer = new StringTokenizer(nextLine);
+            }
             
             // parse payment data
             tokenizer.nextToken("< $>\t");
@@ -66,14 +62,37 @@ public class TransactionReader {
                     break;
             }
             transaction.setPayment(payment);
-            nextline = reader.readLine();
-            while(nextline.isEmpty()) nextline = reader.readLine(); // consume empty lines
+
             
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
+            //System.out.println(nextLine);
+        } else return null;
+        
         return transaction;
     }
+    
+    public static void main(String[] args){
+        Transaction trans;
+        try {
+            
+            TransactionReader tr = new TransactionReader("Post/testFIles/Transaction.txt");
+            while(tr.hasMoreTransactions()){
+                trans = tr.nextTransaction();
+                while(trans.hasMoreTransactionItems()){
+                    TransactionItem tItem = trans.getNextTransactionItem();
+                    System.out.println(tItem);
+                }
+            System.out.println("");
+            }
+        } catch(Exception e){
+            
+        }
+        
+        
+        
+    }
 
-    private BufferedReader reader;
+    private String nextLine;
+    private StringTokenizer tokenizer;
+    private Scanner scanner;
+    private File file;
 }

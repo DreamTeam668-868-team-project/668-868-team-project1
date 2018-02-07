@@ -8,7 +8,10 @@ public class Manager {
     }
     
     public void openStore(){
-        
+        // init product catalog
+        // store.getCatalog().init();
+        // seup Post -- store.getPost().init();
+        store.open();
     }
     
     private String name;

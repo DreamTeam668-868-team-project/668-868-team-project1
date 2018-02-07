@@ -1,8 +1,8 @@
 package store;
 
 public class ProductCatalog {
-    private ProductReader pr;
-    private java.util.Map<String, ProductSpec> productCatalog;
+private ProductReader pr;
+private java.util.Map<String, ProductSpec> productCatalog;
     
     ProductCatalog(String filePath){
         try {
