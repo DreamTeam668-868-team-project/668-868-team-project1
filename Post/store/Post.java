@@ -40,8 +40,8 @@ public class Post {
         invoice += "--------------------------------------------\n";
         invoice += "Total: $" + total + "\n"; // needs formatting
         if(payment instanceof CashPayment){
-            invoice += "Amount Tendered: $" + ((CashPayment) payment).getAmount();
-            invoice += "Amount Redturned: $" + (((CashPayment) payment).getAmount() - total);
+            invoice += "Amount Tendered: $" + ((CashPayment) payment).getAmount() + "\n";
+            invoice += "Amount Redturned: $" + (Math.round((((CashPayment) payment).getAmount() - total) * 100.0) / 100.0);
                     
             // check if payment can cover total, return change (if any)
         }
@@ -78,7 +78,7 @@ public class Post {
     }
     
     public void printInvoice(){
-        System.out.println(invoice);
+        System.out.println(invoice + "\n");
     }
 
 }
