@@ -45,9 +45,9 @@ public class TransactionReader {
             }
             
             // parse payment data
-            tokenizer.nextToken("< $>\t");
+            
             Payment payment = null;
-            switch (tokenizer.nextToken()) {
+            switch (tokenizer.nextToken("< $>\t")) {
                 case "CASH":
                     payment = new CashPayment(Double.valueOf(tokenizer.nextToken()));
                     break;
