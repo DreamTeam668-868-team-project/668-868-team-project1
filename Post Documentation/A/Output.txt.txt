@@ -1,0 +1,103 @@
+Costco
+Jane Doe  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  2  @ $45.68           $91.36>
+<RODUCT THAT CUSTOME  15 @ $7.90           $118.50>
+< REALLY WANTS TO BU  99 @ $0.99            $98.01>
+< BUT CAN'T ACTUALLY  1  @ $1,049.49     $1,049.49>
+<FFORD.  ,            1  @ $10,480.10   $10,480.10>
+---------------------------------------------------
+Total: $11838.69  
+Amount Tendered: $9.99     
+Amount Returned: ($11,828.70)
+
+Costco
+Jane Does  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  2  @ $45.68           $91.36>
+<RODUCT THAT CUSTOME  15 @ $7.90           $118.50>
+< REALLY WANTS TO BU  9  @ $0.99             $8.91>
+< BUT CAN'T ACTUALLY  1  @ $1,049.49     $1,049.49>
+<FFORD.  ,            1  @ $10,480.10   $10,480.10>
+---------------------------------------------------
+Total: $11749.59  
+Amount Tendered: Credit Card 99999
+
+Costco
+Joe Cool  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  2  @ $45.68           $91.36>
+<RODUCT THAT CUSTOME  1  @ $7.90             $7.90>
+< REALLY WANTS TO BU  9  @ $0.99             $8.91>
+---------------------------------------------------
+Total: $109.40    
+Amount Tendered: Credit Card 98765
+
+Costco
+Billy Boy  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  2  @ $45.68           $91.36>
+---------------------------------------------------
+Total: $92.59     
+Amount Tendered: Credit Card 11117
+
+Costco
+Bobs Yuruncle  2018-38-08 10:38:54
+---------------------------------------------------
+< BUT CAN'T ACTUALLY  1  @ $1,049.49     $1,049.49>
+---------------------------------------------------
+Total: $1049.49   
+Amount Tendered: $1.00     
+Amount Returned: ($1,048.49)
+
+Costco
+Jannis Yuranti  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<RODUCT THAT CUSTOME  1  @ $7.90             $7.90>
+<FFORD.  ,            1  @ $10,480.10   $10,480.10>
+---------------------------------------------------
+Total: $10489.23  
+Amount Tendered: Paid by Check
+
+Costco
+Mr. Cool  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  1  @ $45.68           $45.68>
+<RODUCT THAT CUSTOME  1  @ $7.90             $7.90>
+< REALLY WANTS TO BU  3  @ $0.99             $2.97>
+< BUT CAN'T ACTUALLY  1  @ $1,049.49     $1,049.49>
+<FFORD.  ,            1  @ $10,480.10   $10,480.10>
+---------------------------------------------------
+Total: $11587.37  
+Amount Tendered: $777.77   
+Amount Returned: ($10,809.60)
+
+Costco
+Jane Doe  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+<Y SECOND ITEM DESCR  2  @ $45.68           $91.36>
+<RODUCT THAT CUSTOME  3  @ $7.90            $23.70>
+< REALLY WANTS TO BU  9  @ $0.99             $8.91>
+< BUT CAN'T ACTUALLY  1  @ $1,049.49     $1,049.49>
+<FFORD.  ,            1  @ $10,480.10   $10,480.10>
+---------------------------------------------------
+Total: $11654.79  
+Amount Tendered: Credit Card 12345
+
+Costco
+Joe Hot  2018-38-08 10:38:54
+---------------------------------------------------
+<TEM DESCRIPTION 1    1  @ $1.23             $1.23>
+---------------------------------------------------
+Total: $1.23      
+Amount Tendered: $1.00     
+Amount Returned: ($0.23)   
+
+BUILD SUCCESSFUL (total time: 0 seconds)
