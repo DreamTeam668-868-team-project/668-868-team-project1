@@ -12,6 +12,7 @@ public class Post {
     private ProductSpec scannedProduct;
     private double total;
     private OutputStream oStream;
+    private String invoice;
     
     Post(ProductCatalog productCatalog){
         total = 0;
@@ -26,33 +27,45 @@ public class Post {
         }
     }
     
-    public boolean payTotal(Payment payment){
+    public void pay(Payment payment){
+        invoice += "-------\n";
+        invoice += "Total: $" + total + "\n"; // needs formatting
         if(payment instanceof CashPayment){
+            invoice += "Amount Tendered: $" + ((CashPayment) payment).getAmount();
+            invoice += "Amount Redturned: $" + (((CashPayment) payment).getAmount() - total);
+                    
             // check if payment can cover total, return change (if any)
         }
         else if(payment instanceof CheckPayment){
             // check if amount of payment can cover bill
+            invoice += "Amount Tendered: " + ((CheckPayment) payment).toString();
         }
         else if(payment instanceof CreditPayment){
             // verify credit number, reject or accept vased on result
+            invoice += "Amount Tendered: " + ((CreditPayment) payment).toString();
         }
-        return false;
     }
     
-    public void endTransaction(){
-        
+    public void startTransaction(){
+        invoice = "";
+        total = 0;
+        scannedProduct = null;
     }
     
     boolean validateUPC(String upc){return this.productCatalog.validateUPC(upc);}
 
     private void updateInvoice(TransactionItem tItem){
-        int quantity = tItem.getQuantity();
         double subTotal = 0;
+        String desc = scannedProduct.getDescription();
+        int quantity = tItem.getQuantity();
+        double price = scannedProduct.getPrice();
+        subTotal = quantity * price;
+        String invoiceLine = "<" + desc + "\t\t" + quantity + " @ " + price + "\t" + subTotal + ">\n";
         
-        subTotal = tItem.getQuantity() * scannedProduct.getPrice();
-        
-        
-        this.total += subTotal;     
+        invoice += invoiceLine;
+               
+        // <desc      # @ price     subtotal>
+        this.total += subTotal;
     }
     
     private void printInvoice(){}
