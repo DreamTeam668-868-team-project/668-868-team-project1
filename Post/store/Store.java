@@ -46,14 +46,13 @@ public class Store {
                 // customers buy things
                 TransactionReader tr = new TransactionReader(customerTransaction);
 
-                // manager can post
-
                 while (tr.hasMoreTransactions()) {
                     System.out.print("");
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+
             // customers buy things
             // customer interacts with POST to process transactions
             // manager closes store
