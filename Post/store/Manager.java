@@ -4,6 +4,7 @@ public class Manager {
 
     Manager(String name, Store store) {
         this.name = name;
+        this.store = store;
     }
 
     public void openStore() {

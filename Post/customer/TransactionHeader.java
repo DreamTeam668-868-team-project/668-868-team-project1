@@ -1,17 +1,25 @@
 package customer;
 
+import java.util.Date;
+import java.text.DateFormat;
+
 public class TransactionHeader {
     String customerName;
-    java.util.Date date;
-    
-    TransactionHeader(String name, java.util.Date date){
+    Date date;
+    DateFormat df;
+
+    TransactionHeader(String name) {
         this.customerName = name;
-        this.date = date;        
+        date = new Date();
     }
-    
-    public String getCustomerName(){
+
+    public String getCustomerName() {
         return this.customerName;
     }
-    // toString();
-    
+
+    @Override
+    public String toString() {
+        String s = "Customer Name: " + customerName + "  Date: " + date.toString();
+        return s;
+    }
 }
