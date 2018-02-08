@@ -1,8 +1,6 @@
 package store;
 
-import customer.TransactionHeader;
-import customer.TransactionReader;
-
+import customer.*;
 import java.io.FileNotFoundException;
 
 
@@ -40,23 +38,37 @@ public class Store {
         Store store1 = new Store("Costco");
         Manager manager = new Manager("John", store1);
         manager.openStore();
+        Customer c1;
 
         if (store1.isOpen) {
+            Transaction trans;
             try {
-                // customers buy things
+
                 TransactionReader tr = new TransactionReader(customerTransaction);
-
-
                 while (tr.hasMoreTransactions()) {
-                    System.out.print("");
+                    // build a customer
+                    trans = tr.nextTransaction();
+                    c1 = new Customer(trans);
+                    // implement buy in assignment2
+//                    c1.checkout();
+
+                    while (trans.hasMoreTransactionItems()) {
+                        TransactionItem tItem = trans.getNextTransactionItem();
+                        System.out.println(tItem);
+                    }
+                    System.out.println("");
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+
             }
 
-            // customers buy things
-            // customer interacts with POST to process transactions
-            // manager closes store
+
+        }
+        manager.closeStore();
+
+        // customers buy things
+        // customer interacts with POST to process transactions
+        // manager closes store
         
         /*
         while ( TransactionReader.hasMoreTransactons )
@@ -67,6 +79,6 @@ public class Store {
         }
         
         */
-        }
     }
 }
+

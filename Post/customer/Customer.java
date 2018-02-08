@@ -4,7 +4,7 @@ public class Customer {
     String name;
     Transaction transaction;
 
-    Customer (Transaction transaction) // give transaction from file, takes place of GUI input
+    public Customer (Transaction transaction) // give transaction from file, takes place of GUI input
     {
         this.transaction = transaction;
         this.name = transaction.getHeader().getCustomerName();
