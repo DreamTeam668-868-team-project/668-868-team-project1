@@ -13,8 +13,16 @@ public class Customer {
         this.name = transaction.getHeader().getCustomerName();
         this.post = post;
     }
-    
-    public void checkout(){
+
+    public String getName() {
+        return name;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void checkout() {
 
         // interact with POST methods
         // POST.scanItem -- continues while transaction has more items

@@ -30,7 +30,7 @@ public class TransactionReader {
         
         if (scanner.hasNextLine()) {
             while(nextLine.isEmpty()) nextLine = scanner.nextLine(); // consume empty lines
-            TransactionHeader header = new TransactionHeader(nextLine, new Date());
+            TransactionHeader header = new TransactionHeader(nextLine);
             transaction.setHeader(header);
             
             nextLine = scanner.nextLine();
@@ -49,6 +49,10 @@ public class TransactionReader {
             }
             
             // parse payment data
+<<<<<<< HEAD
+=======
+            
+>>>>>>> sub-group-b
             Payment payment = null;
             switch (tokenizer.nextToken("< $>\t")) {
                 case "CASH":

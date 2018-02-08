@@ -1,17 +1,20 @@
 package store;
 
 import customer.*;
+
 import java.io.FileNotFoundException;
 
 
 public class Store {
-    //    public java.util.Date getDateAndTime(){
-//        return new java.util.Date();
-//    }
+    public java.util.Date getDateAndTime() {
+        return new java.util.Date();
+    }
+
     private String name;
     private Manager manager;
     private Post post; // maybe array later
     private boolean isOpen;
+    private static String productsCatalog = "Post/testFiles/Products.txt";
     private static String customerTransaction = "Post/testFiles/Transaction.txt";
 
     public Store(String name) {

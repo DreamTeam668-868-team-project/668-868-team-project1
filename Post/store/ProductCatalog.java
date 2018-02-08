@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class ProductCatalog {
 private ProductReader pr;
 private HashMap<String, ProductSpec> productCatalog;
+private ProductSpec spec;
     
     ProductCatalog(String filePath){
         pr = new ProductReader(filePath);
@@ -30,4 +31,5 @@ private HashMap<String, ProductSpec> productCatalog;
         if(productCatalog.containsKey(upc)) return true;
         return false;
     }
+
 }

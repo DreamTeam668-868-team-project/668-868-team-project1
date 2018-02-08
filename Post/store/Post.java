@@ -6,6 +6,7 @@ import customer.CreditPayment;
 import customer.Payment;
 import customer.TransactionHeader;
 import customer.TransactionItem;
+
 import java.io.OutputStream;
 
 public class Post {
@@ -29,8 +30,11 @@ public class Post {
         invoice += "--------------------------------------------\n";
     }
 
-    public void scanItem(TransactionItem tItem){        
-        if(validateUPC(tItem.getUPC())){
+    void updateProductCatalog() {
+    }
+
+    public void scanItem(TransactionItem tItem) {
+        if (validateUPC(tItem.getUPC())) {
             scannedProduct = productCatalog.getProduct(tItem.getUPC());
             updateInvoice(tItem);
         }
@@ -44,26 +48,26 @@ public class Post {
             invoice += "Amount Redturned: $" + (Math.round((((CashPayment) payment).getAmount() - total) * 100.0) / 100.0);
                     
             // check if payment can cover total, return change (if any)
-        }
-        else if(payment instanceof CheckPayment){
+        } else if (payment instanceof CheckPayment) {
             // check if amount of payment can cover bill
             invoice += "Amount Tendered: " + ((CheckPayment) payment).toString();
-        }
-        else if(payment instanceof CreditPayment){
+        } else if (payment instanceof CreditPayment) {
             // verify credit number, reject or accept vased on result
             invoice += "Amount Tendered: " + ((CreditPayment) payment).toString();
         }
     }
-    
-    public void startTransaction(){
+
+    public void startTransaction() {
         invoice = "";
         total = 0;
         scannedProduct = null;
     }
-    
-    boolean validateUPC(String upc){return this.productCatalog.validateUPC(upc);}
 
-    private void updateInvoice(TransactionItem tItem){
+    boolean validateUPC(String upc) {
+        return this.productCatalog.validateUPC(upc);
+    }
+
+    private void updateInvoice(TransactionItem tItem) {
         double subTotal = 0;
         String desc = scannedProduct.getDescription();
         int quantity = tItem.getQuantity();
@@ -72,7 +76,7 @@ public class Post {
         String invoiceLine = "<" + desc + " " + String.format("%1$-2s",quantity) + " @ " + String.format("%1$-8s",price) + String.format("%1$-8s",(Math.round(subTotal * 100.0) / 100.0)) + ">\n";
         
         invoice += invoiceLine;
-               
+
         // <desc      # @ price     subtotal>
         this.total += subTotal;
     }
