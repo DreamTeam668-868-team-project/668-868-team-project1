@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import static jdk.nashorn.internal.codegen.OptimisticTypesPersistence.store;
 
 public class TransactionReader {
 
