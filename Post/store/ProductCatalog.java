@@ -7,11 +7,7 @@ private ProductReader pr;
 private HashMap<String, ProductSpec> productCatalog;
     
     ProductCatalog(String filePath){
-        try {
-            pr = new ProductReader(filePath);
-        } catch(java.io.FileNotFoundException e){
-            e.printStackTrace();            
-        }
+        pr = new ProductReader(filePath);
         productCatalog = new HashMap();
     }
     

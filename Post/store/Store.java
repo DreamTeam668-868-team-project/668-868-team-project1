@@ -20,6 +20,9 @@ public class Store {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
     void open() {
         isOpen = true;
     }
@@ -34,37 +37,22 @@ public class Store {
 
     public static void main(String[] args) {
 
+        Store store = new Store("Costco");
+        Manager manager = new Manager("John", store);
+        
         // manager opens store
-        Store store1 = new Store("Costco");
-        Manager manager = new Manager("John", store1);
-        manager.openStore();
-        Customer c1;
+        Post post = manager.openStore();
+        Customer customer;
 
-        if (store1.isOpen) {
-            Transaction trans;
-            try {
-
-                TransactionReader tr = new TransactionReader(customerTransaction);
-                while (tr.hasMoreTransactions()) {
-                    // build a customer
-                    trans = tr.nextTransaction();
-                    c1 = new Customer(trans);
-                    // implement buy in assignment2
-//                    c1.checkout();
-
-                    while (trans.hasMoreTransactionItems()) {
-                        TransactionItem tItem = trans.getNextTransactionItem();
-                        System.out.println(tItem);
-                    }
-                    System.out.println("");
-                }
-            } catch (Exception e) {
-
+        if (store.isOpen) {
+            TransactionReader tr = new TransactionReader("Post/testFIles/Transaction.txt");
+            while(tr.hasMoreTransactions()){
+                customer = new Customer(post, tr.nextTransaction());
+                customer.checkout();
             }
-
-
+            manager.closeStore();
         }
-        manager.closeStore();
+        
 
         // customers buy things
         // customer interacts with POST to process transactions
@@ -77,8 +65,8 @@ public class Store {
         
         
         }
-        
         */
+        
     }
 }
 

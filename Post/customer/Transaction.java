@@ -21,6 +21,10 @@ public class Transaction {
         this.payment = payment;
     }
     
+    public Payment getPayment() {
+        return this.payment;
+    }
+    
     public void addTransactionItem(TransactionItem item){
         if(!this.transactionItems.contains(item)) this.transactionItems.add(item);
     }

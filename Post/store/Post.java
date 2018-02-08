@@ -4,6 +4,7 @@ import customer.CashPayment;
 import customer.CheckPayment;
 import customer.CreditPayment;
 import customer.Payment;
+import customer.TransactionHeader;
 import customer.TransactionItem;
 import java.io.OutputStream;
 
@@ -11,14 +12,22 @@ public class Post {
     private ProductCatalog productCatalog;
     private ProductSpec scannedProduct;
     private double total;
-    private OutputStream oStream;
+//    private OutputStream oStream;
     private String invoice;
+    private Store store;
     
-    Post(ProductCatalog productCatalog){
+    Post(Store store, ProductCatalog productCatalog){
         total = 0;
         this.productCatalog = productCatalog;
+        this.store = store;
     }
     void updateProductCatalog(){}
+    
+    public void login(TransactionHeader th) {
+        invoice = store.getName() + "\n";
+        invoice += th.getCustomerName() + "  " + th.getDate() + "\n";
+        invoice += "--------------------------------------------\n";
+    }
 
     public void scanItem(TransactionItem tItem){        
         if(validateUPC(tItem.getUPC())){
@@ -28,7 +37,7 @@ public class Post {
     }
     
     public void pay(Payment payment){
-        invoice += "-------\n";
+        invoice += "--------------------------------------------\n";
         invoice += "Total: $" + total + "\n"; // needs formatting
         if(payment instanceof CashPayment){
             invoice += "Amount Tendered: $" + ((CashPayment) payment).getAmount();
@@ -60,7 +69,7 @@ public class Post {
         int quantity = tItem.getQuantity();
         double price = scannedProduct.getPrice();
         subTotal = quantity * price;
-        String invoiceLine = "<" + desc + "\t\t" + quantity + " @ " + price + "\t" + subTotal + ">\n";
+        String invoiceLine = "<" + desc + " " + String.format("%1$-2s",quantity) + " @ " + String.format("%1$-8s",price) + String.format("%1$-8s",(Math.round(subTotal * 100.0) / 100.0)) + ">\n";
         
         invoice += invoiceLine;
                
@@ -68,10 +77,8 @@ public class Post {
         this.total += subTotal;
     }
     
-    private void printInvoice(){}
-    
-    private void clearInvoic(){
-        total = 0;
-        
+    public void printInvoice(){
+        System.out.println(invoice);
     }
+
 }

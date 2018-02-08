@@ -10,9 +10,13 @@ import java.util.StringTokenizer;
 
 public class TransactionReader {
 
-    public TransactionReader(String filePath) throws FileNotFoundException {
+    public TransactionReader(String filePath){
+        try{
         file = new File(filePath);
         scanner = new Scanner(file);
+        } catch(FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public boolean hasMoreTransactions(){

@@ -8,9 +8,13 @@ public class ProductReader {
     private File file;
     private Scanner scanner;
 
-    public ProductReader(String productFile) throws FileNotFoundException {
-        file = new File(productFile);
-        scanner = new Scanner(file);
+    public ProductReader(String productFile) {
+        try{
+            file = new File(productFile);
+            scanner = new Scanner(file);
+        } catch(FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public boolean hasMoreProducts(){
@@ -37,15 +41,11 @@ public class ProductReader {
     // test main
     public static void main(String[] args){
         String filePath = "Post/testFiles/Products.txt";
-        try{
-            ProductReader pr = new ProductReader(filePath);
-            while(pr.hasMoreProducts()){
-                ProductSpec product = pr.nextProduct();
-            
-                System.out.println(product.toString());
-            }
-        } catch(FileNotFoundException e){
-            e.printStackTrace();
+        ProductReader pr = new ProductReader(filePath);
+        while(pr.hasMoreProducts()){
+            ProductSpec product = pr.nextProduct();
+
+            System.out.println(product.toString());
         }
     }
 }

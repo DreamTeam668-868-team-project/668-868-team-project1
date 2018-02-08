@@ -4,17 +4,19 @@ public class Manager {
 
     Manager(String name, Store store) {
         this.name = name;
+        this.store = store;
     }
 
-    public void openStore() {
+    public Post openStore() {
         // init product catalog
         // store.getCatalog().init();
-        // seup Post -- store.getPost().init();
+        // setup Post -- store.getPost().init();
         String procatalog = "Post/testFiles/Products.txt";
         ProductCatalog productCatalog = new ProductCatalog(procatalog);
         productCatalog.init();
-        Post post = new Post(productCatalog);
+        Post post = new Post(store, productCatalog);
         store.open();
+        return post;
     }
 
     public void closeStore() {
