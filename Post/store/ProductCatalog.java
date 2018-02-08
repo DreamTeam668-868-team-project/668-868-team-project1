@@ -1,8 +1,10 @@
 package store;
 
+import java.util.HashMap;
+
 public class ProductCatalog {
 private ProductReader pr;
-private java.util.Map<String, ProductSpec> productCatalog;
+private HashMap<String, ProductSpec> productCatalog;
     
     ProductCatalog(String filePath){
         try {
@@ -10,6 +12,7 @@ private java.util.Map<String, ProductSpec> productCatalog;
         } catch(java.io.FileNotFoundException e){
             e.printStackTrace();            
         }
+        productCatalog = new HashMap();
     }
     
     void init(){
