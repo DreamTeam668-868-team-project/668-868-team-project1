@@ -4,24 +4,21 @@ import java.text.SimpleDateFormat;
 
 public class TransactionHeader {
     String customerName;
-    Date date;
-    DateFormat df;
-
-    TransactionHeader(String name) {
+    java.util.Date date;
+    
+    TransactionHeader(String name, java.util.Date date){
         this.customerName = name;
-        date = new Date();
+        this.date = date;        
     }
-
-    public String getCustomerName() {
+    
+    public String getCustomerName(){
         return this.customerName;
     }
     
     public String getDate(){
         return new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(date).toString();
-    }
-    // toString();
+    }    // toString();
     
-
     @Override
     public String toString() {
         String s = "Customer Name: " + customerName + "  Date: " + date.toString();

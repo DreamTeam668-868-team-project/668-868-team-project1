@@ -30,9 +30,6 @@ public class Post {
         invoice += "--------------------------------------------\n";
     }
 
-    void updateProductCatalog() {
-    }
-
     public void scanItem(TransactionItem tItem) {
         if (validateUPC(tItem.getUPC())) {
             scannedProduct = productCatalog.getProduct(tItem.getUPC());
