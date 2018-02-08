@@ -46,6 +46,7 @@ public class Store {
                 // customers buy things
                 TransactionReader tr = new TransactionReader(customerTransaction);
 
+
                 while (tr.hasMoreTransactions()) {
                     System.out.print("");
                 }
